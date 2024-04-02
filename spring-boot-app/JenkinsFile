@@ -46,6 +46,13 @@ pipeline {
       }
     }
 
+  stages {
+    stage('Checkout 2nd repo') {
+      steps {
+        sh 'echo passed'
+        git branch: 'master', url: 'https://github.com/sgaurav7/app-manifests.git'
+      }
+
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "app-manifests"
@@ -54,7 +61,6 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    cd app-manifests
                     git config user.email "sidharathsingh7@gmail.com"
                     git config user.name "Siddhartha Gaurav"
                     BUILD_NUMBER=${BUILD_NUMBER}
