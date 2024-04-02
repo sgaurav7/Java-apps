@@ -48,7 +48,7 @@ pipeline {
     stage('Clone Repository') {
       steps {
            // Clone the repository to a specific directory
-             git branch: 'main', credentialsId: 'github', url: 'https://github.com/sgaurav7/app-manifests.git'
+             git branch: 'main',  url: 'https://github.com/sgaurav7/app-manifests.git'
             }
         }
 
