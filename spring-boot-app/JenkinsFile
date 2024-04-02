@@ -52,6 +52,7 @@ pipeline {
             GIT_USER_NAME = "sgaurav7"
         }
         steps {
+            sh 'cd ~'
             git branch: 'master', url: 'https://github.com/sgaurav7/app-manifests.git'
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
