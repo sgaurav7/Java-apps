@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/sgaurav7/java-apps.git'
+        git branch: 'master', url: 'https://github.com/sgaurav7/app-manifests.git'
       }
     }
     stage('Build and Test') {
@@ -52,8 +52,6 @@ pipeline {
             GIT_USER_NAME = "sgaurav7"
         }
         steps {
-            sh 'cd ~'
-            git branch: 'master', url: 'https://github.com/sgaurav7/app-manifests.git'
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     cd app-manifests
