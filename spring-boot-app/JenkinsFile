@@ -45,15 +45,10 @@ pipeline {
                 }
             }
         }
-        stage('Checkout 2nd repo') {
-            steps {
-                sh 'echo passed'
-                git branch: 'master', credentialsId: 'github' , url: 'https://github.com/sgaurav7/app-manifests.git'
-            }
-        }
+
         stage('Update Deployment File') {
             environment {
-                GIT_REPO_NAME = "app-manifests"
+                GIT_REPO_NAME = "java-apps"
                 GIT_USER_NAME = "sgaurav7"
             }
             steps {
