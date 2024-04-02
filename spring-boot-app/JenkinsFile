@@ -46,7 +46,7 @@ pipeline {
       }
     }
 
-  stages {
+
     stage('Checkout 2nd repo') {
       steps {
         sh 'echo passed'
